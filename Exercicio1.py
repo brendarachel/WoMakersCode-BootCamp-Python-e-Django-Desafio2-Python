@@ -4,10 +4,10 @@
 #2. Um carro tem os seguintes atributos: ligado, cor, modelo, velocidade.
 
 class Carro:
-    def __init__(self):
+    def __init__(self, cor, modelo):
+        self.cor = cor
+        self.modelo = modelo
         self.ligado = False
-        self.cor = 'Cinza'
-        self.modelo = 'Duster'
         self.velocidade = 0
         self.velocidade_min = 0
         self.velocidade_max = 200
@@ -21,24 +21,25 @@ class Carro:
         self.ligado = False
     
     def acelera(self):
-        if self.velocidade == self.velocidade_max:
+        if self.ligado == False:
             return
         
         if self.velocidade < self.velocidade_max:
             self.velocidade += 10
     
     def desacelera(self):
-        if self.velocidade == self.velocidade_min:
+        if self.ligado == False:
             return
         
         if self.velocidade > self.velocidade_min:
             self.velocidade -= 10
     
     def __str__(self) -> str:
-        return f'Modelo: {self.modelo}\n Cor: {self.cor}\n Ligado? {self.ligado}\n Velocidade: {self.velocidade}km/h'
+        ligado_str = "Sim" if self.ligado == True else "Não"
+        return f'Modelo: {self.modelo}\n Cor: {self.cor}\n Ligado? {ligado_str}\n Velocidade: {self.velocidade}km/h'
 
 #4. Crie uma instância da classe carro.
-carro = Carro()
+carro = Carro('cinza', 'Duster')
 
 #5. Faça o carro "andar" utilizando os métodos da sua classe.
 
