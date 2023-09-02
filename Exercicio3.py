@@ -4,7 +4,6 @@
 #No entanto, ele não está funcionando bem. Você pode consertá-lo?
 
 def calcular_media(valores):
-    global media #indicando que a variável global deve ser atualizada
     tamanho = len(valores) #corrigindo de tamanho = 1 para calcular o tamanho da lista de valores
     soma = sum(valores) #corrigindo para a função de calcular a soma dos valores
 
@@ -19,11 +18,11 @@ while continuar:
         
     if valor.lower() == 'ok':
         continuar = False #corrigindo de false para False
-    else: #acrescentando uma lógica para converter o valor em string para float
+    else: #acrescentando uma lógica para converter o valor em string para float e atualizando a lista de valores
         valor = float(valor)
         valores.append(valor)
     
 media = calcular_media(valores)
 print()
-print('A média calculada para os valores {} foi de {:.2f}'.format(valores, media)) #formatando a média com duas casas decimais
+print('A média calculada para os valores {} foi de {:.1f}'.format(valores, media)) #formatando a média com uma casa decimal
 print()
